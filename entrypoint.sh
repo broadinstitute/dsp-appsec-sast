@@ -50,3 +50,8 @@ ${SPOTBUGS} -textui -project ${sbproject} -exclude ${sbfilter} -printConfigurati
 
 # run analysis
 ${SPOTBUGS} -textui -project ${sbproject} -exclude ${sbfilter}
+
+pwd
+
+ls -lt
+
