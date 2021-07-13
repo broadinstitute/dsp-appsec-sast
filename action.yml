@@ -11,7 +11,3 @@ runs:
   steps:
     - run: ${{ github.action_path }}/entrypoint.sh
       shell: bash
-    - uses: actions/upload-artifact@v2
-      with:
-        name: Spotbugs Findings
-        path: spotbugs.sarif
