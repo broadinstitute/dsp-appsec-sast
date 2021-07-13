@@ -1,0 +1,1 @@
+55e8c4c45f1c332757785a90c4438739e6166debb28a6a0f13c065bd4326afac  findsecbugs-plugin-1.11.0.jar

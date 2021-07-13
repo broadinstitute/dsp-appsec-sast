@@ -1,0 +1,5 @@
+<Project projectName="sbproj">
+  <Jar>./target/scala-2.13/classes</Jar>
+  <Jar>./project/target/config-classes</Jar>
+  <SrcDir>./src/main/scala</SrcDir>
+</Project>

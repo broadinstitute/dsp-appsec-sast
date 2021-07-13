@@ -1,0 +1,13 @@
+# action.yml
+name: 'DSP SAST'
+description: 'Run Static Application Security Test (SAST) and store results'
+inputs:
+  dojo_engagement_id:
+    name: 'Dojo CI/CD Engagement ID'
+    required: false
+    default: 0
+runs:
+  using: 'composite'
+  steps:
+    - run: ${{ github.action_path }}/entrypoint.sh
+      shell: bash
