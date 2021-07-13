@@ -11,6 +11,9 @@ FILENAME=$(awk '{print $2}' ${SHASUM})
 SPOTBUGS_HOME=./spotbugs-${VERSION}
 SPOTBUGS=${SPOTBUGS_HOME}/bin/spotbugs
 
+sbproject=spotbugs-project.fbp
+sbfilter=spotbugs-filter.xml
+
 URL=https://github.com/spotbugs/spotbugs/releases/download/${VERSION}/${FILENAME}
 
 echo ---
@@ -39,16 +42,11 @@ if [ ! -e ${FILENAME} ]; then
     cp ${FILENAME} ${SPOTBUGS_HOME}/plugin
 fi
 
-cp ${GITHUB_ACTION_PATH}/dsp-appsec-poc-security-tools.fbp .
-cp ${GITHUB_ACTION_PATH}/dsp-appsec-poc-security-tools-filter.xml .
+cp ${GITHUB_ACTION_PATH}/${sbproject} .
+cp ${GITHUB_ACTION_PATH}/${sbfilter} .
 
 # print spotbugs configuration
-${SPOTBUGS} -textui \
-    -project dsp-appsec-poc-security-tools.fbp \
-    -exclude dsp-appsec-poc-security-tools-filter.xml \
-    -printConfiguration
+${SPOTBUGS} -textui -project ${sbproject} -exclude ${sbfilter} -printConfiguration
 
 # run analysis
-${SPOTBUGS} -textui \
-    -project dsp-appsec-poc-security-tools.fbp \
-    -exclude dsp-appsec-poc-security-tools-filter.xml
+${SPOTBUGS} -textui -project ${sbproject} -exclude ${sbfilter}
