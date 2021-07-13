@@ -13,6 +13,7 @@ SPOTBUGS=${SPOTBUGS_HOME}/bin/spotbugs
 
 sbproject=spotbugs-project.fbp
 sbfilter=spotbugs-filter.xml
+sbsarif=spotbugs.sarif
 
 URL=https://github.com/spotbugs/spotbugs/releases/download/${VERSION}/${FILENAME}
 
@@ -49,9 +50,5 @@ cp ${GITHUB_ACTION_PATH}/${sbfilter} .
 ${SPOTBUGS} -textui -project ${sbproject} -exclude ${sbfilter} -printConfiguration
 
 # run analysis
-${SPOTBUGS} -textui -project ${sbproject} -exclude ${sbfilter}
-
-pwd
-
-ls -lt
+${SPOTBUGS} -textui -project ${sbproject} -exclude ${sbfilter} -sarif > ${sbsarif}
 
